@@ -3,11 +3,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from register import views as v
 from upload.views import image_upload
 
 urlpatterns = [
     path("", image_upload, name="upload"),
     path("admin/", admin.site.urls),
+    path("register/", v.register, name="register"),
 ]
 
 if bool(settings.DEBUG):
