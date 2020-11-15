@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'upload',
     'register',
+    'upload',
 ]
 
 MIDDLEWARE = [
@@ -135,7 +135,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 LOGIN_REDIRECT_URL = '/'
 
 # Redirect to home URL after logout
-#LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 # For checking reset password 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

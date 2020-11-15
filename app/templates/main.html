@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+    {%for results in Picture%}
+    <div class="col-3" style="text-align: center;">
+      <h3 style="color: blue;">{{results.title}}</h3>
+      <img src="{{results.image.url}}" height="260" width="200" alt="{{results.image}}" title="{{results.title}}"/>
+    </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+{% endblock %}

@@ -1,18 +1,25 @@
 from django.shortcuts import render
-from django.core.files.storage import FileSystemStorage
+from .forms import PictureForm
+from upload.models import Picture
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
 
 
-def image_upload(request):
-    """
-    Take picture and save it.
-    """
-    if request.method == "POST" and request.FILES["image_file"]:
-        image_file = request.FILES["image_file"]
-        fs = FileSystemStorage()
-        filename = fs.save(image_file.name, image_file)
-        image_url = fs.url(filename)
-        print(image_url)
-        return render(request, "upload.html", {
-            "image_url": image_url
-        })
-    return render(request, "upload.html")
+@login_required(login_url='/login/')
+@permission_required('upload.add_picture', login_url='/login/')
+def image_upload_view(request):
+    """Process images uploaded by users"""
+    if request.method == 'POST':
+        form = PictureForm(request.POST, request.FILES)
+        if form.is_valid():
+            return render(request, 'index.html')
+    else:
+        form = PictureForm()
+    return render(request, 'index.html', {'form': form})
+
+@login_required(login_url='/login/')
+@permission_required('upload.view_picture', login_url='/login/')
+def image_show(request):
+    """Dynamic gallery of picture"""
+    resultdisplay = Picture.objects.all()
+    return render(request,'main.html',{'Picture':resultdisplay})
