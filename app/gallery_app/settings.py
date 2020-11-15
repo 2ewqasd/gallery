@@ -57,7 +57,7 @@ ROOT_URLCONF = 'gallery_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,3 +129,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/mediafiles/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
+# Redirect to home URL after login 
+LOGIN_REDIRECT_URL = '/'
+
+# Redirect to home URL after logout
+#LOGOUT_REDIRECT_URL = '/'
+
+# For checking reset password 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
