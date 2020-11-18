@@ -17,9 +17,10 @@ def image_upload_view(request):
         form = PictureForm()
     return render(request, 'index.html', {'form': form})
 
+
 @login_required(login_url='/login/')
 @permission_required('upload.view_picture', login_url='/login/')
 def image_show(request):
     """Dynamic gallery of picture"""
     resultdisplay = Picture.objects.all()
-    return render(request,'main.html',{'Picture':resultdisplay})
+    return render(request, 'main.html', {'Picture': resultdisplay})
