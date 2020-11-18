@@ -4,6 +4,8 @@ from django.contrib.auth.models import Group
 
 
 # Create your views here.
+
+
 def register(response):
     """Registration for user witch add him in Unknown group"""
     if response.method == "POST":
@@ -16,4 +18,4 @@ def register(response):
     else:
         form = RegisterForm()
 
-    return render(response, "register/register.html", {"form":form})
+    return render(response, "register/register.html", {"form": form})
