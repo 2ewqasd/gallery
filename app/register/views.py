@@ -12,7 +12,7 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             user = form.save()
-            Unknown = Group.objects.get_or_create(name='Unknown')
+            Unknown = Group.objects.get_or_create(name='Unknown')[0]
             user.groups.add(Unknown)
         return redirect("/")
     else:
