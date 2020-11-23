@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import django_heroku
+#import django_heroku
 import os
 
 
@@ -145,7 +145,7 @@ LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals(), test_runner=False)
+#django_heroku.settings(locals(), test_runner=False)
 
 # DigitalOcean
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')

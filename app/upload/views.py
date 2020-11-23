@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from .forms import PictureForm
 from upload.models import Picture
 from django.contrib.auth.decorators import login_required
@@ -13,7 +13,7 @@ def image_upload_view(request):
         form = PictureForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return render(request, 'index.html')
     else:
         form = PictureForm()
     return render(request, 'index.html', {'form': form})
