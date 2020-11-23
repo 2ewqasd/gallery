@@ -21,6 +21,5 @@ services:
       - POSTGRES_USER=gallery_app
       - POSTGRES_PASSWORD=gallery_app
       - POSTGRES_DB=gallery_app_dev
-
 volumes: 
     postgres_data:
