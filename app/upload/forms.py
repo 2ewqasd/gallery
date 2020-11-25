@@ -1,11 +1,9 @@
 from django import forms
-from upload.models import Picture
 
 
-class PictureForm(forms.ModelForm):
+class PictureForm(forms.Form):
     """
     Form for the image model
     """
-    class Meta:
-        model = Picture
-        fields = ('title', 'image')
+    title = forms.CharField(max_length=200)
+    image = forms.ImageField()
