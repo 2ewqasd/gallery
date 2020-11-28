@@ -142,11 +142,10 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # For checking reset password
-EMAIL_HOST_USER = os.environ['SENDGRID_USERNAME']
-EMAIL_HOST= 'smtp.sendgrid.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_PASSWORD = os.environ['SENDGRID_PASSWORD']
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '19043f57d10507'
+EMAIL_HOST_PASSWORD = '9639c66cd1c29d'
+EMAIL_PORT = '2525'
 
 
 # Configure Django App for Heroku.
