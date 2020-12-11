@@ -43,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'register',
     'upload',
-    'storages'
+    'storages',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,7 +124,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = True 
 
 USE_TZ = True
 
@@ -128,8 +132,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_URL = "/staticfiles/"
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+#STATIC_URL = "/staticfiles/"
+#STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # MEDIA_URL = "/mediafiles/"
 # MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
@@ -142,10 +146,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 # For checking reset password
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '19043f57d10507'
-EMAIL_HOST_PASSWORD = '9639c66cd1c29d'
-EMAIL_PORT = '2525'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'specforworkwithpeop@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('KEY')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'
 
 
 # Configure Django App for Heroku.

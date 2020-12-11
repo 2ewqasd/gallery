@@ -21,7 +21,7 @@ class ShowPicture(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = 'upload.view_picture'
     login_url = '/login/'
     model = Picture
-    paginate_by = 10
+    paginate_by = 9
 
     def get_context_data(self, **kwargs):
         """ Take objects and show them"""

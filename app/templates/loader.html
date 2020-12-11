@@ -1,11 +1,11 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Create an Account{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<form method="POST" class="form-group">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit" class="btn btn-success">Register</button>
-</form>
+  <form class="col-md-5 mx-auto" method="post" novalidate>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Register</button>
+  </form>
 {% endblock %}
